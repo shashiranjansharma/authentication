@@ -1,0 +1,38 @@
+.auth-form {
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    z-index: -1;
+    height: 60vh;
+    width: 60vw;
+    min-height: 400px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent !important;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    &-field {
+      padding: 50px 120px;
+      box-sizing: border-box;
+      h3 {
+        text-align: center;
+      }
+      label {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      > .el-input, .el-button {
+        margin-bottom: 10px;
+        margin-top: 5px;
+      }
+      .forgot-pw {
+        text-align: right;
+        font-size: 14px;
+        width: 100%;
+        a {
+          text-decoration: none;
+          color: blue($color: #2133d4);
+        }
+      }
+    }
+  }
