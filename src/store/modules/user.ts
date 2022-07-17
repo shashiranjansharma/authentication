@@ -61,7 +61,8 @@ export default {
     },
     async saveProfile({ commit, state }: any, payload: any) {
       try {
-        await updateProfile(state.user, payload);
+        const { currentUser }: any = await getAuth();
+        await updateProfile(currentUser, payload);
         commit("setUserDetails");
       } catch (err: any) {
         throw new Error(err);
