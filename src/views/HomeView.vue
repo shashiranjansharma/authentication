@@ -1,39 +1,27 @@
 <template>
-  <div class="home">
-    <nav>
-      <div v-if="currenUser">
-        {{ `Hi ${currenUser.displayName || currenUser.email}` }}
-      </div>
-      <div>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-        <a @click="logout"> Logout</a>
-      </div>
-    </nav>
+  <div class="home position-relative">
+    <div class="sticky-top position-absolute w-100">
+      <nav class="d-flex justify-content-between p-3 border-bottom">
+        <div v-if="currenUser" class="font-weight-bold font-italic">
+          {{ `Hi, ${currenUser.displayName || currenUser.email}` }}
+        </div>
+        <div>
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link> |
+          <a @click="logout"> Logout</a>
+        </div>
+      </nav>
+    </div>
     <router-view />
-    <el-button>Test</el-button>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { Vue } from "vue-class-component";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
 export default class HomeView extends Vue {
   get currenUser() {
     return this.$store.getters.getCurrentUser;
-    // .then((resolve: any) => {
-    //   console.log(resolve);
-    //   return resolve;
-    // })
-    // .catch((err: any) => {
-    //   throw new Error(err);
-    // });
   }
   logout() {
     try {
